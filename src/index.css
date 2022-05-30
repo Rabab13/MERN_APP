@@ -5,6 +5,159 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  justify-content: center;
+  
+}
+.App{
+  justify-content: center;
+  text-align: center;
+}
+html{
+  justify-content: center;
+}
+
+form{
+  padding:40px 10px;
+  display: flex;
+  justify-content: center;
+}
+form div{
+  padding:15px 3px;
+  color:rgb(8, 8, 8);
+  font-size: 1.3em ;
+  font-weight: bolder;
+  color:#04127f; 
+  
+}
+form input{
+  display: block;
+  margin:5px;
+  padding:10px;
+  color:rgb(8, 8, 9);
+  border:2px solid #04127f; 
+  border-radius: 10px;
+}
+
+form input[type="submit"]{
+  background-color: #04127f; 
+  color:rgb(240, 238, 238);
+  padding: 5px 50px;
+  font-size: 20px ;
+  font-weight: bolder;
+  cursor: pointer;
+  margin-left: 30px ;
+  border:2px solid #04127f; 
+  border-radius: 10px;
+
+}
+table{
+  max-width: 60%;
+  margin: auto;
+}
+tr{
+  justify-content: center;
+  text-align: center;
+}
+td{
+  color:rgb(0, 0, 0);
+  margin: 70px;
+  border:0;
+}
+th{
+  color:#eff0f3;
+  background-color: #04127f;
+  padding:10px 40px ;
+  border-radius: 10px;
+  margin-bottom: 60px;
+}
+
+h1{
+  margin-top: 40px;
+  color:#04127f; 
+}
+td button{
+  background-color: #04127f;
+  color: rgb(246, 240, 240);
+}
+.title{
+  text-transform: uppercase;
+  font-size: larger;
+  font-weight: bold;
+  color:#04127f; 
+}
+button{
+  border-radius: 10px;
+  border: 1px solid #04127f;
+  max-width: 100%;
+}
+table>:not(caption)>*>*.delete{
+  background-color: #04127f;
+  border-radius: 10px;
+}
+.description input{
+  border-radius: 10px;
+  border: 1px solid #04127f;
+  max-width: 100%;
+  color:#04127f;
+  text-align: center;
+}
+/* ANIMATION */
+.card{
+  width:300px;
+  padding:20px;
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%, -50%) /*to make it in middle*/;
+  background-color: #fff;
+  border-radius:10px;
+  box-shadow: 0 0 10px #ddd inset;
+}
+.card img{
+  max-width: 100%;
+  border-radius: 10px;
+  color: #fff;
+}
+.card h2, p{
+  text-align: center;
+}
+
+
+body::before{
+  content: "";
+  position:fixed;
+  width:300%;
+  height:100%;
+  background-color:#0075ff;
+  left:50%;
+  top:50%;
+  transform:translateX(-50%) skew(0, -10deg);
+  border-radius:50%;
+  z-index: -1;
+  animation: waving 8s ease-in-out infinite alternate;
+}
+@keyframes waving {
+  from{
+      transform:translateX(-50%) skew(0, -10deg);
+  }
+  to{
+      transform:translateX(-30%) skew(-10deg ,0);
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+form{
+  display: grid;
+  justify-content: center;
+}
+form input[type="submit"]{
+  margin: 0;
+}
+.App{
+  justify-content: center;
+}
 }
 
 code {

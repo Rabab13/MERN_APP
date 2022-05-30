@@ -1,23 +1,44 @@
-import logo from './logo.svg';
+import React , { useEffect, useState } from 'react';
+import { getBooksApi, addBooksApi, updateBooksApi, deleteBooksApi } from './apis/books'
 import './App.css';
+import TableBook from './components/TableBook';
+import CreateBook from './components/CreateBook';
+
 
 function App() {
+  //Create state to store all books
+  const [books, setBooks] = useState([]);
+  useEffect(() => {
+    getBooksApi().then(books => setBooks(books))
+  },[])
+
+  const addBook = (book) =>{
+    return addBooksApi(book)
+    .then(data => {
+      setBooks([...books, data])
+    })
+  }
+  const updateBook = (book)=>{
+    return updateBooksApi(book)
+    .then(data => {
+      return data;
+    })
+  }
+  const deleteBook = (id)=>{
+    return deleteBooksApi(id)
+    .then(data => {
+      if (data.deletedCount === 1)
+      setBooks(books.filter(book => book._id !== id))
+    })
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container-fluid">
+      <CreateBook onCreate={addBook}/>
+      <TableBook books={books} onDelete={deleteBook} onUpdate={updateBook}/>
+      </div>
     </div>
   );
 }
