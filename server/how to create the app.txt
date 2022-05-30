@@ -1,0 +1,16 @@
+create directory
+open terminal
+$ npm init   to create package.json
+$ sudo npm install express nodemon --save
+express -> to bulid web api for node js 
+nodemon -> to run javascript file 
+create app.js file 
+add in package.json  "start": "nodemon app.js"  to script start
+$ npm start 
+then check the server on the port which you put it in app.js
+
+install mongose to connect to database using conection url from mongo database
+$ npm install --save mongoose
+
+allow access to mongose database from anywhere 
+goto mongo db web -> go to your db -> go to network access -> edit the ip make it connect to mongo from anywhere
