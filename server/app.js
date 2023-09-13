@@ -8,12 +8,16 @@ const booksRoute = require('./router/books')
 const mongoose = require('mongoose');
 
 //Create middleware
-app.use(cors());
+//app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true
+}));
 app.use(bodyParser.json());
 app.use('/books', booksRoute);
 
 //Connect to database
-mongoose.connect("mongodb+srv://books:1234@cluster0.r2qra.mongodb.net/?retryWrites=true&w=majority", (event)=>{
+mongoose.connect("mongodb+srv://rababrain:1234@cluster0.a3ofa5v.mongodb.net/?retryWrites=true&w=majority", (event)=>{
     console.log("Connected to DB")
 }).catch(e => console.log(e))
 
